@@ -4,17 +4,17 @@ import Image from "next/image"
 
 const SecondHook = () => {
   return (
-    <div className={`w-460 ${outfit.className} ${outfit.variable}`}>
-      <div className={`mt-64 ${outfit.className} ${outfit.variable}`}>
+    <div className={`mt-64 ${outfit.className} ${outfit.variable}`}>
+      <div className="">
         <h1 className="text-center text-4xl font-semibold">Pay with USDC<br/>at any QR</h1>
         <h1 className="mt-8 text-center text-sm font-extralight">Seamlessly buy or sell USDC across multiple chains using your local fiat currency. Whether you go<br/>
           from fiat to crypto or crypto to fiat, it's fast, secure and truly peer to peer with uWu.
         </h1>
       </div>
-      <div className="mt-24 flex flex-row justify-evenly">
+      <div className="mt-24 flex flex-row justify-between pr-70 pl-60">
         <div className="">
           <h1 className="text-6xl font-medium">Designed for</h1>
-          <p className="mt-4 text-sm font-extralight">
+          <p className="mt-12 text-sm font-extralight">
             Pay anywhere that accepts QR codes using your crypto
             <br/>
             balance. We handle the bridge, swap and settlement in a
