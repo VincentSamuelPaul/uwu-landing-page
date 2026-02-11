@@ -16,9 +16,10 @@
   height: 2px;
   background: linear-gradient(
     90deg,
-    transparent,
+    white,
     var(--star-color),
-    white
+    transparent
+    
   );
   border-radius: 999px;
   filter: drop-shadow(0 0 6px var(--star-glow));

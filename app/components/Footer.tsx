@@ -15,7 +15,7 @@ const Footer = () => {
 
       <div className="max-w-6xl mx-auto mt-16 flex justify-between items-start">
 
-        <div className="flex flex-col space-y-6">
+        <div className="flex flex-col space-y-6 cursor-pointer ">
           <Image
             src="/footer-logo.png"
             width={140}
@@ -24,11 +24,11 @@ const Footer = () => {
           />
 
           <div className="flex gap-6 text-2xl text-white/80">
-            <FaFacebookF />
-            <FaGithub />
-            <FaInstagram />
-            <FaLinkedinIn />
-            <FaXTwitter />
+            <FaFacebookF className="cursor-pointer"/>
+            <FaGithub className="cursor-pointer"/>
+            <FaInstagram className="cursor-pointer"/>
+            <FaLinkedinIn className="cursor-pointer"/>
+            <FaXTwitter className="cursor-pointer"/>
           </div>
         </div>
 
@@ -37,33 +37,33 @@ const Footer = () => {
           <div className="flex flex-col space-y-4">
             <h2 className="text-sm font-semibold">Resources</h2>
             <ul className="list-disc pl-5 space-y-2 text-sm text-white/70">
-              <li>Blog</li>
-              <li>Brand</li>
-              <li>FAQ</li>
-              <li>Case Studies</li>
-              <li>Help & Support</li>
+              <li className="cursor-pointer" >Blog</li>
+              <li className="cursor-pointer">Brand</li>
+              <li className="cursor-pointer">FAQ</li>
+              <li className="cursor-pointer">Case Studies</li>
+              <li className="cursor-pointer">Help & Support</li>
             </ul>
           </div>
 
           <div className="flex flex-col space-y-4">
             <h2 className="text-sm font-semibold">Developers</h2>
             <ul className="list-disc pl-5 space-y-2 text-sm text-white/70">
-              <li>Build</li>
-              <li>Documentation</li>
-              <li>Technical Paper</li>
-              <li>Case Security</li>
-              <li>Bug Bounty</li>
+              <li className="cursor-pointer">Build</li>
+              <li className="cursor-pointer" >Documentation</li>
+              <li className="cursor-pointer">Technical Paper</li>
+              <li className="cursor-pointer">Case Security</li>
+              <li className="cursor-pointer">Bug Bounty</li>
             </ul>
           </div>
 
           <div className="flex flex-col space-y-4">
             <h2 className="text-sm font-semibold">Company</h2>
             <ul className="list-disc pl-5 space-y-2 text-sm text-white/70">
-              <li>Privacy Policy</li>
-              <li>Terms Of Service</li>
-              <li>Technical Paper</li>
-              <li>Contact</li>
-              <li>Manage Analytics</li>
+              <li className="cursor-pointer">Privacy Policy</li>
+              <li className="cursor-pointer">Terms Of Service</li>
+              <li className="cursor-pointer">Technical Paper</li>
+              <li className="cursor-pointer">Contact</li>
+              <li className="cursor-pointer"> Manage Analytics</li>
             </ul>
           </div>
 

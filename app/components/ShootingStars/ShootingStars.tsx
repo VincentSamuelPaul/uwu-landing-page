@@ -7,7 +7,7 @@ type ShootingStarsProps = {
   count?: number;
 };
 
-export default function ShootingStars({ count = 40 }: ShootingStarsProps) {
+export default function ShootingStars({ count = 25 }: ShootingStarsProps) {
   const stars = useMemo(
     () =>
       Array.from({ length: count }).map(() => ({
