@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Outfit } from "next/font/google";
+import { outfit } from "./fonts";
 import "./globals.css";
 import Header from "./components/Header";
+
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,10 +16,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const outfit = Outfit({
-  variable: "--font-outfit",
-  subsets: ["latin"],
-}) 
+
 
 export const metadata: Metadata = {
   title: "Create Next App",

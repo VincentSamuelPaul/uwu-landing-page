@@ -1,5 +1,5 @@
 import Button from "./components/Button"
-import { outfit } from "./layout"
+import { outfit } from "./fonts"
 import Image from "next/image"
 
 const SecondHook = () => {
