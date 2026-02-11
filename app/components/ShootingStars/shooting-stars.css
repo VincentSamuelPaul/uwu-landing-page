@@ -1,0 +1,46 @@
+:root {
+  --star-color: rgba(180, 210, 255, 0.9);
+  --star-glow: rgba(140, 170, 255, 0.9);
+}
+
+.shooting-stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.shooting-star {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--star-color),
+    white
+  );
+  border-radius: 999px;
+  filter: drop-shadow(0 0 6px var(--star-glow));
+  transform: rotate(-45deg);
+  opacity: 0;
+  animation-name: shoot;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shoot {
+  0% {
+    transform: translate(0, 0) rotate(-45deg);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-900px, 900px) rotate(-45deg);
+    opacity: 0;
+  }
+}
