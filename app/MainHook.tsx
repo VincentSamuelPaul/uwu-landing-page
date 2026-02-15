@@ -30,13 +30,14 @@ const MainHook = () => {
       </div>
       <div className="relative">
         <Image
-          src="/earth.png"
-          alt="earth background"
-          width={1920}
-          height={1080}
-          className="absolute left-1/2 top-0 mb-48 opacity-20 z-0 pointer-events-none w-screen h-auto object-contain"
-          style={{ transform: 'translateX(calc(-50% - 8px)) scale(2)'}}
-        />
+    src="/earth.png"
+    alt="earth background"
+    fill
+    priority
+    sizes="100vw"
+    className="object-contain opacity-20"
+    style={{ transform: 'scale(2)' }}
+  />
         <div className="w-full relative z-10">
           <h1 className="text-center text-4xl font-semibold">Pay with USDC<br/>at any QR</h1>
           <h1 className={`mt-8 text-center text-sm font-extralight ${inter.className} ${inter.variable} `}>Seamlessly buy or sell USDC across multiple chains using your local fiat currency. Whether you go<br/>
