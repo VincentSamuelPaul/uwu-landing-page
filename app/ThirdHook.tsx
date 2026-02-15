@@ -34,12 +34,15 @@ const ThirdHook = () => {
   return (
     <div className={`w-full flex flex-col justify-center items-center mt-32 pb-64 ${outfit.className} ${outfit.variable} relative overflow-hidden`}>
       <Image
-        src="/coin.png"
-        alt="coin background"
-        fill
-        className="pointer-events-none z-0 object-cover opacity-100 pl-96 pb-96"
-        style={{ transform: 'translateY(8%) scale(1.1)' }}
-      />
+  src="/coin.png"
+  alt="coin background"
+  width={1200}
+  height={1200}
+  className="pointer-events-none absolute right-[-50px] top-1/2 -translate-y-1/2 z-0 opacity-90"
+  style={{ transform: 'scale(1.1)' }}
+/>
+
+      <div className="absolute inset-0 rounded-4xl bg-white/5 opacity-30 pointer-events-none" />
       <div className="relative z-10 w-full flex flex-col justify-center items-center">
         <div className="text-center">
           <h1 className="text-4xl font-semibold">Engineered for Scale</h1>
@@ -50,12 +53,22 @@ const ThirdHook = () => {
           </p>
         </div>
 
-        <div ref={cardsRef} className="mt-12 flex flex-row justify-center items-center">
+        <div ref={cardsRef} className="relative mt-12 flex flex-row justify-center items-center">
+
+  {/* lighting gradient behind glass */}
+  <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-white/10 via-transparent to-transparent blur-2xl opacity-60" />
+
 
           <div
-            className={`w-72 h-64 m-8 p-8 bg-[${colors.glassGrey}] rounded-4xl transform transition-all duration-700 ${
-              show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"
-            }`}
+            className={`
+              relative
+              w-72 h-64 m-8 p-8
+              rounded-4xl
+              transform transition-all duration-700
+              ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"}
+
+              glass-card glass-highlight
+            `}
             style={{ transitionDelay: "0ms" }}
           >
             <div className={`w-fit p-3 bg-[#00d0ff31] rounded-xl`}>
@@ -64,7 +77,10 @@ const ThirdHook = () => {
               </svg>
             </div>
             <h1 className="mt-6 text-xl">Instant Settlements</h1>
-            <p className={`mt-4 text-sm text-[${colors.textGrey}] ${inter.className} ${inter.variable}`}>
+            <p
+  className={`mt-4 text-sm ${inter.className} ${inter.variable}`}
+  style={{ color: colors.textGrey }}
+>
               Real-time finality using our<br/>
               proprietary Optimistic Bridges.<br/>
               Assests arrive before you can
@@ -73,18 +89,28 @@ const ThirdHook = () => {
           </div>
 
           <div
-            className={`w-72 h-64 m-8 p-8 bg-[${colors.glassGrey}] rounded-4xl transform transition-all duration-700 ${
-              show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"
-            }`}
+            className={`
+              relative
+              w-72 h-64 m-8 p-8
+              rounded-4xl
+              transform transition-all duration-700
+              ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"}
+
+              glass-card glass-highlight
+            `}
             style={{ transitionDelay: "200ms" }}
           >
+            <div className="absolute inset-0 rounded-4xl bg-white/5 opacity-30 pointer-events-none" />
             <div className="w-fit p-3 bg-[#9d50bb35] rounded-xl">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#9D50BB" viewBox="0 0 16 16">
                 <path d="M13.442 2.558a.625.625 0 0 1 0 .884l-10 10a.625.625 0 1 1-.884-.884l10-10a.625.625 0 0 1 .884 0M4.5 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m0 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5m7 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m0 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
               </svg>
             </div>
             <h1 className="mt-6 text-xl">Micro-Fees</h1>
-            <p className={`mt-4 text-sm text-[${colors.textGrey}] ${inter.className} ${inter.variable}`}>
+            <p
+  className={`mt-4 text-sm ${inter.className} ${inter.variable}`}
+  style={{ color: colors.textGrey }}
+>
               Algorithmic gas optimization
               reduces costs by 99% compared to
               mainnet. Pay in any stablecoin or
@@ -93,9 +119,14 @@ const ThirdHook = () => {
           </div>
 
           <div
-            className={`w-72 h-64 m-8 p-8 bg-[${colors.glassGrey}] rounded-4xl transform transition-all duration-700 ${
-              show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"
-            }`}
+            className={`
+              relative
+              w-72 h-64 m-8 p-8
+              rounded-4xl
+              transform transition-all duration-700
+              ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"}
+              glass-card glass-highlight
+            `}
             style={{ transitionDelay: "400ms" }}
           >
             <div className="w-fit p-3 bg-[#00d0ff31] rounded-xl">
@@ -105,7 +136,10 @@ const ThirdHook = () => {
               </svg>
             </div>
             <h1 className="mt-6 text-xl">Omni-chain Layer</h1>
-            <p className={`mt-4 text-sm text-[${colors.textGrey}] ${inter.className} ${inter.variable}`}>
+            <p
+  className={`mt-4 text-sm ${inter.className} ${inter.variable}`}
+  style={{ color: colors.textGrey }}
+>
               Native support for 15+ EVM and<br/>
               non-EVM networks. True<br/>
               interoperability without the<br/>
@@ -115,7 +149,7 @@ const ThirdHook = () => {
 
         </div>
 
-        <div className={`w-250 h-96 mt-24 flex flex-row justify-between bg-[${colors.glassGrey}] rounded-4xl p-16 inset-0 backdrop-blur-[1px]`}>
+        <div className="relative w-250 h-73 mt-24 flex flex-row justify-between rounded-4xl p-16 glass-card glass-highlight">
           <div>
             <h1 className="text-4xl font-semibold">
               Build the future of<br />decentralised finance
