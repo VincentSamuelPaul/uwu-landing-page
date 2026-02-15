@@ -6,9 +6,9 @@ import { colors } from "../colors";
 const Header = () => {
   return (
     <div className="mt-4 w-full flex flex-row justify-center items-center">
-      <div className={`flex w-260 flex-row justify-between items-center bg-[${colors.solidGrey}] p-2 rounded-full`}>
+      <div className="flex w-260 flex-row justify-between items-center p-2 rounded-full" style={{ backgroundColor: colors.solidGrey }}>
         <div className="ml-8 flex flex-row justify-center items-center">
-          <div className={`flex flex-row justify-center align-middle rounded-xl bg-gradient-to-b from-[${colors.logoPurple}] to-[${colors.logoPink}] p-2`}>
+          <div className="flex flex-row justify-center align-middle rounded-xl p-2" style={{ background: `linear-gradient(to bottom, ${colors.logoPurple}, ${colors.logoPink})` }}>
             <h1 className="text-xs">uW</h1>
           </div>
           <h1 className="ml-2 font-bold">uWu</h1>
