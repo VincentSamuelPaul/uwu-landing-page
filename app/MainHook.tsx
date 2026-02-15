@@ -9,7 +9,7 @@ const MainHook = () => {
     <div className={`${outfit.className} ${outfit.variable} pl-50 pr-50`}>
       <div className="pb-48 relative z-10 overflow-hidden">
         <ShootingStars count={25} local />
-        <div className={`mt-24 w-fit bg-[${colors.transparentGrey}] p-4 rounded-full`}>
+        <div className={`mt-24 w-fit p-4 rounded-full`} style={{backgroundColor: colors.transparentGrey}}>
           <h1 className={`text-sm text-[${colors.textGrey}] ${inter.className} ${inter.variable} font-medium`}>
             Pay at any store without bank freeze worries
           </h1>
