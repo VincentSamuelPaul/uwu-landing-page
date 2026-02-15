@@ -11,7 +11,7 @@ const MainHook = () => {
         <ShootingStars count={25} local />
         <div className={`mt-24 w-fit bg-[${colors.transparentGrey}] p-4 rounded-full`}>
           <h1 className={`text-sm text-[${colors.textGrey}] ${inter.className} ${inter.variable} font-medium`}>
-            pay at any store without bank freeze worries
+            Pay at any store without bank freeze worries
           </h1>
         </div>
         <div className="mt-12">
