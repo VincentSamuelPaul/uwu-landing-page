@@ -9,7 +9,6 @@ export default function Home() {
     <div className="relative bg-black overflow-hidden">
       
       {/* Background Animation */}
-      <ShootingStars count={25} />
 
       {/* Content */}
       <main className="relative z-10">

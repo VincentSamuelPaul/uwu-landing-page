@@ -11,6 +11,17 @@
   z-index: 0;
 }
 
+.shooting-stars--local {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+  /* fade out stars near the bottom edge */
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
+}
+
 .shooting-star {
   position: absolute;
   height: 2px;

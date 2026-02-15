@@ -5,9 +5,13 @@ import "./shooting-stars.css";
 
 type ShootingStarsProps = {
   count?: number;
+  local?: boolean;
 };
 
-export default function ShootingStars({ count = 25 }: ShootingStarsProps) {
+export default function ShootingStars({
+  count = 25,
+  local = false,
+}: ShootingStarsProps) {
   const stars = useMemo(
     () =>
       Array.from({ length: count }).map(() => ({
@@ -21,7 +25,7 @@ export default function ShootingStars({ count = 25 }: ShootingStarsProps) {
   );
 
   return (
-    <div className="shooting-stars">
+    <div className={`shooting-stars ${local ? "shooting-stars--local" : ""}`}>
       {stars.map((star, i) => (
         <span
           key={i}
