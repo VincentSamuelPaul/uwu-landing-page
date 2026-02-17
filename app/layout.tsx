@@ -31,9 +31,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className="bg-black w-full"
+        className="bg-black w-full snap-y snap-mandatory h-screen overflow-y-scroll"
       >
-        <Header/>
+        <Header />
         {children}
       </body>
     </html>

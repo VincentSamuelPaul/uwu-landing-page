@@ -34,13 +34,13 @@ const ThirdHook = () => {
   return (
     <div className={`w-full flex flex-col justify-center items-center mt-32 pb-64 ${outfit.className} ${outfit.variable} relative overflow-hidden`}>
       <Image
-  src="/coin.png"
-  alt="coin background"
-  width={1200}
-  height={1200}
-  className="pointer-events-none absolute right-[-50px] top-1/2 -translate-y-1/2 z-0 opacity-90"
-  style={{ transform: 'scale(1.1)' }}
-/>
+        src="/coin.png"
+        alt="coin background"
+        width={1200}
+        height={1200}
+        className="pointer-events-none absolute right-[-50px] top-1/2 -translate-y-1/2 z-0 opacity-90"
+        style={{ transform: 'scale(1.1)' }}
+      />
 
       <div className="absolute inset-0 rounded-4xl bg-white/5 opacity-30 pointer-events-none" />
       <div className="relative z-10 w-full flex flex-col justify-center items-center">
@@ -55,8 +55,8 @@ const ThirdHook = () => {
 
         <div ref={cardsRef} className="relative mt-12 flex flex-row justify-center items-center">
 
-  {/* lighting gradient behind glass */}
-  <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-white/10 via-transparent to-transparent blur-2xl opacity-60" />
+          {/* lighting gradient behind glass */}
+          <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-white/10 via-transparent to-transparent blur-2xl opacity-60" />
 
 
           <div
@@ -73,16 +73,16 @@ const ThirdHook = () => {
           >
             <div className={`w-fit p-3 bg-[#00d0ff31] rounded-xl`}>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#00D2FF" viewBox="0 0 16 16">
-                <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
+                <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z" />
               </svg>
             </div>
             <h1 className="mt-6 text-xl">Instant Settlements</h1>
             <p
-  className={`mt-4 text-sm ${inter.className} ${inter.variable}`}
-  style={{ color: colors.textGrey }}
->
-              Real-time finality using our<br/>
-              proprietary Optimistic Bridges.<br/>
+              className={`mt-4 text-sm ${inter.className} ${inter.variable}`}
+              style={{ color: colors.textGrey }}
+            >
+              Real-time finality using our<br />
+              proprietary Optimistic Bridges.<br />
               Assests arrive before you can
               refresh your wallet.
             </p>
@@ -103,14 +103,14 @@ const ThirdHook = () => {
             <div className="absolute inset-0 rounded-4xl bg-white/5 opacity-30 pointer-events-none" />
             <div className="w-fit p-3 bg-[#9d50bb35] rounded-xl">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#9D50BB" viewBox="0 0 16 16">
-                <path d="M13.442 2.558a.625.625 0 0 1 0 .884l-10 10a.625.625 0 1 1-.884-.884l10-10a.625.625 0 0 1 .884 0M4.5 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m0 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5m7 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m0 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
+                <path d="M13.442 2.558a.625.625 0 0 1 0 .884l-10 10a.625.625 0 1 1-.884-.884l10-10a.625.625 0 0 1 .884 0M4.5 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m0 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5m7 6a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m0 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
               </svg>
             </div>
             <h1 className="mt-6 text-xl">Micro-Fees</h1>
             <p
-  className={`mt-4 text-sm ${inter.className} ${inter.variable}`}
-  style={{ color: colors.textGrey }}
->
+              className={`mt-4 text-sm ${inter.className} ${inter.variable}`}
+              style={{ color: colors.textGrey }}
+            >
               Algorithmic gas optimization
               reduces costs by 99% compared to
               mainnet. Pay in any stablecoin or
@@ -131,18 +131,18 @@ const ThirdHook = () => {
           >
             <div className="w-fit p-3 bg-[#00d0ff31] rounded-xl">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#00D2FF" viewBox="0 0 16 16">
-                <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/>
-                <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/>
+                <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z" />
+                <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z" />
               </svg>
             </div>
             <h1 className="mt-6 text-xl">Omni-chain Layer</h1>
             <p
-  className={`mt-4 text-sm ${inter.className} ${inter.variable}`}
-  style={{ color: colors.textGrey }}
->
-              Native support for 15+ EVM and<br/>
-              non-EVM networks. True<br/>
-              interoperability without the<br/>
+              className={`mt-4 text-sm ${inter.className} ${inter.variable}`}
+              style={{ color: colors.textGrey }}
+            >
+              Native support for 15+ EVM and<br />
+              non-EVM networks. True<br />
+              interoperability without the<br />
               complexity.
             </p>
           </div>
