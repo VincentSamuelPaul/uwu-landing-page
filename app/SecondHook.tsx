@@ -5,7 +5,7 @@ import Image from "next/image"
 const SecondHook = () => {
   return (
     <div className={`mt-12 ${outfit.className} ${outfit.variable}`}>
-      
+
     </div>
   )
 }

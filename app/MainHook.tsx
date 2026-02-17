@@ -6,7 +6,7 @@ import { outfit, inter } from "./fonts"
 import ShootingStars from "./components/ShootingStars/ShootingStars"
 import Image from "next/image"
 import { colors } from "./colors"
-import { motion, useScroll, useTransform, useSpring } from "framer-motion"
+import { motion, useScroll, useTransform, useSpring, useMotionValueEvent } from "framer-motion"
 
 const MainHook = () => {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -22,6 +22,27 @@ const MainHook = () => {
     damping: 20,
     restDelta: 0.001
   })
+
+  // --- Snap Logic ---
+  // Snap to Start (0) or End (1) of the section
+  // Since this is a 300vh sticky section, we snap to the scroll position relative to it.
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    // This is valid but we can't auto-scroll *while* user is scrolling easily.
+    // CSS Snap is better for "mandatory" snapping.
+    // However, MainHook is a single large div.
+    // To make it snap *between phases*, we need Javascript or structure changes.
+    // User asked for "make the animations snap".
+    // Let's add CSS snap to the PARENT (page) or this container?
+    // Actually, simply snapping to the top of the component (start) and the bottom (end) is good.
+    // But since it's 300vh, we want to snap to specific *phases*?
+    // "Phase 1: Logo Zoom" (0 - 0.5)
+    // "Phase 2: Reveal" (0.6 - 1.0)
+    // Let's assume standard CSS snap-alignment is what they want for the SECTION.
+    // But if they mean the ANIMATION should snap (i.e. not get stuck in between), JS is needed.
+    // Simple approach: Snap to 0 or 1 if idle?
+    // Let's leave JS snap out for now and try CSS snap first on the container.
+  })
+
 
   // --- Animation Logic ---
 
@@ -47,17 +68,23 @@ const MainHook = () => {
   // Phase 2: Reveal Content (0.6 -> 0.9)
   const revealOpacity = useTransform(smoothProgress, [0.6, 0.8], [0, 1])
   const revealY = useTransform(smoothProgress, [0.6, 0.9], [50, 0])
+  // 5. Stars Opacity (0.5 -> 0.6)
+  // Fade out stars before Earth reveals to reduce noise
+  const starsOpacity = useTransform(smoothProgress, [0.5, 0.6], [1, 0])
 
 
   return (
-    <div ref={containerRef} className={`${outfit.className} ${outfit.variable} h-[300vh] relative`}>
+    <div ref={containerRef} className={`${outfit.className} ${outfit.variable} h-[300vh] relative snap-start`}>
 
       <div className="sticky top-0 h-screen overflow-hidden flex flex-col items-center justify-center">
 
-        {/* Shooting Stars Background (Always present) */}
-        <div className="absolute inset-0 z-0">
+        {/* Shooting Stars Background (Fades out) */}
+        <motion.div
+          className="absolute inset-0 z-0"
+          style={{ opacity: starsOpacity }}
+        >
           <ShootingStars count={25} local />
-        </div>
+        </motion.div>
 
         {/* --- Logo Section (Fancy Text Only) --- */}
         {/* Z-Index 20 to be on top of Hero Text (19) */}
@@ -125,9 +152,17 @@ const MainHook = () => {
             </div>
           </div>
 
+          {/* Pay with USDC Section */}
+          <div className="relative z-10 w-full max-w-4xl text-center mb-12 mt-0">
+            <h1 className="text-6xl font-bold mb-6 drop-shadow-2xl">Pay with USDC<br />at any QR</h1>
+            <p className={`text-lg text-gray-200 max-w-2xl mx-auto leading-relaxed font-medium drop-shadow-lg ${inter.className}`}>
+              Seamlessly buy or sell USDC across multiple chains using your local fiat currency. Whether you go from fiat to crypto or crypto to fiat, it's fast, secure and truly peer to peer with uWu.
+            </p>
+          </div>
+
           {/* 2-Column Content - Compact to fit inside Earth */}
           {/* Reduced max-w to 5xl to keep it tight */}
-          <div className="relative z-10 w-full max-w-5xl px-8 flex flex-row items-center justify-between mt-32">
+          <div className="relative z-10 w-full max-w-5xl px-8 flex flex-row items-center justify-between mt-8">
 
             {/* Left Column: Text */}
             <div className="flex flex-col items-start text-left max-w-md">
@@ -202,6 +237,9 @@ const MainHook = () => {
         </motion.div>
 
       </div>
+
+      {/* Snap Target for End of Animation */}
+      <div className="absolute bottom-0 left-0 w-full h-screen snap-start pointer-events-none" />
     </div>
   )
 }
