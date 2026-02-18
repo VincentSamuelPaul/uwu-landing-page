@@ -9,38 +9,106 @@ import { colors } from "./colors";
 const ThirdHook = () => {
   const cardsRef = useRef<HTMLDivElement>(null);
   const [show, setShow] = useState(false);
+  const [played, setPlayed] = useState(false);
+  const earthRef = useRef<HTMLDivElement>(null);
+  const coinRef = useRef<HTMLDivElement>(null);
+
+  // Lerp targets (raw scroll values)
+  const rawCoinY = useRef(0);
+  const rawEarthY = useRef(0);
+
+  // Smoothed values (interpolated)
+  const smoothCoinY = useRef(0);
+  const smoothEarthY = useRef(0);
+
+  const rafId = useRef<number | null>(null);
 
   useEffect(() => {
+    if (played) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setShow(true);
+          setPlayed(true);
         }
       },
-      { threshold: 0.4 }
+      { threshold: 0.35 }
     );
 
-    if (cardsRef.current) {
-      observer.observe(cardsRef.current);
-    }
+    if (cardsRef.current) observer.observe(cardsRef.current);
+    return () => observer.disconnect();
+  }, [played]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!cardsRef.current) return;
+
+      const rect = cardsRef.current.getBoundingClientRect();
+      const offset = window.innerHeight - rect.top;
+
+      // Update raw targets based on scroll position
+      rawCoinY.current = offset * 0.08;
+      rawEarthY.current = offset * 0.12;
+    };
+
+    // Lerp factor — lower = smoother (0.06–0.1 is a good range)
+    const LERP_FACTOR = 0.07;
+
+    const tick = () => {
+      // Interpolate smoothed values toward raw targets
+      smoothCoinY.current += (rawCoinY.current - smoothCoinY.current) * LERP_FACTOR;
+      smoothEarthY.current += (rawEarthY.current - smoothEarthY.current) * LERP_FACTOR;
+
+      // Apply transforms
+      if (coinRef.current) {
+        coinRef.current.style.transform = `translateY(${smoothCoinY.current}px) scale(1.1)`;
+      }
+      if (earthRef.current) {
+        earthRef.current.style.transform = `translateY(${smoothEarthY.current}px) scale(1.2)`;
+      }
+
+      rafId.current = requestAnimationFrame(tick);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    rafId.current = requestAnimationFrame(tick);
 
     return () => {
-      if (cardsRef.current) {
-        observer.unobserve(cardsRef.current);
-      }
+      window.removeEventListener("scroll", handleScroll);
+      if (rafId.current !== null) cancelAnimationFrame(rafId.current);
     };
   }, []);
 
+
   return (
     <div className={`w-full flex flex-col justify-center items-center mt-32 pb-64 ${outfit.className} ${outfit.variable} relative overflow-hidden`}>
-      <Image
-        src="/coin.png"
-        alt="coin background"
-        width={1200}
-        height={1200}
-        className="pointer-events-none absolute right-[-50px] top-1/2 -translate-y-1/2 z-0 opacity-90"
-        style={{ transform: 'scale(1.1)' }}
-      />
+      <div
+        ref={earthRef}
+        className="absolute inset-0 -z-10 pointer-events-none will-change-transform"
+        style={{ transform: "translateY(0px) scale(1.2)" }}
+      >
+        <Image
+          src="/earth.png"
+          alt="earth background"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-25 blur-2xl"
+        />
+      </div>
+
+      <div
+        ref={coinRef}
+        className="pointer-events-none absolute right-[-50px] top-1/2 -translate-y-1/2 z-0 opacity-70 will-change-transform"
+      >
+        <Image
+          src="/coin.png"
+          alt="coin background"
+          width={1200}
+          height={1200}
+        />
+      </div>
 
       <div className="absolute inset-0 rounded-4xl bg-white/5 opacity-30 pointer-events-none" />
       <div className="relative z-10 w-full flex flex-col justify-center items-center">
@@ -53,7 +121,10 @@ const ThirdHook = () => {
           </p>
         </div>
 
-        <div ref={cardsRef} className="relative mt-12 flex flex-row justify-center items-center">
+        <div
+          ref={cardsRef}
+          className="relative mt-12 flex flex-row justify-center items-center min-h-[300px]"
+        >
 
           {/* lighting gradient behind glass */}
           <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-white/10 via-transparent to-transparent blur-2xl opacity-60" />
@@ -64,9 +135,8 @@ const ThirdHook = () => {
               relative
               w-72 h-64 m-8 p-8
               rounded-4xl
-              transform transition-all duration-700
+              transform translate-z-0 transition-all duration-1000 ease-out will-change-transform
               ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"}
-
               glass-card glass-highlight
             `}
             style={{ transitionDelay: "0ms" }}
@@ -83,7 +153,7 @@ const ThirdHook = () => {
             >
               Real-time finality using our<br />
               proprietary Optimistic Bridges.<br />
-              Assests arrive before you can
+              Assets arrive before you can
               refresh your wallet.
             </p>
           </div>
@@ -93,9 +163,8 @@ const ThirdHook = () => {
               relative
               w-72 h-64 m-8 p-8
               rounded-4xl
-              transform transition-all duration-700
+              transform translate-z-0 transition-all duration-1000 ease-out will-change-transform
               ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"}
-
               glass-card glass-highlight
             `}
             style={{ transitionDelay: "200ms" }}
@@ -123,7 +192,7 @@ const ThirdHook = () => {
               relative
               w-72 h-64 m-8 p-8
               rounded-4xl
-              transform transition-all duration-700
+              transform translate-z-0 transition-all duration-1000 ease-out will-change-transform
               ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"}
               glass-card glass-highlight
             `}
