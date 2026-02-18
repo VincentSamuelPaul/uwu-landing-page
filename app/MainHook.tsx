@@ -153,7 +153,7 @@ const MainHook = () => {
           </div>
 
           {/* Pay with USDC Section */}
-          <div className="relative z-10 w-full max-w-4xl text-center mb-12 mt-0">
+          <div className="relative z-10 w-full max-w-4xl text-center mb-4 mt-0">
             <h1 className="text-6xl font-bold mb-6 drop-shadow-2xl">Pay with USDC<br />at any QR</h1>
             <p className={`text-lg text-gray-200 max-w-2xl mx-auto leading-relaxed font-medium drop-shadow-lg ${inter.className}`}>
               Seamlessly buy or sell USDC across multiple chains using your local fiat currency. Whether you go from fiat to crypto or crypto to fiat, it's fast, secure and truly peer to peer with uWu.
@@ -162,43 +162,45 @@ const MainHook = () => {
 
           {/* 2-Column Content - Compact to fit inside Earth */}
           {/* Reduced max-w to 5xl to keep it tight */}
-          <div className="relative z-10 w-full max-w-5xl px-8 flex flex-row items-center justify-between mt-8">
+          {/* 2-Column Content - Compact to fit inside Earth */}
+          {/* Reduced max-w to 5xl to keep it tight */}
+          <div className="relative z-10 w-full max-w-6xl px-8 flex flex-row items-center justify-between mt-2">
 
             {/* Left Column: Text */}
-            <div className="flex flex-col items-start text-left max-w-md">
-              <h1 className="text-5xl font-bold mb-6 drop-shadow-2xl">Designed for</h1>
+            <div className="flex flex-col items-start text-left max-w-xl">
+              <h1 className="text-7xl font-bold mb-8 drop-shadow-2xl">Designed for</h1>
 
-              <p className={`text-lg text-[${colors.textGrey}] mb-8 leading-relaxed font-medium drop-shadow-lg ${inter.className}`}>
+              <p className={`text-2xl text-[${colors.textGrey}] mb-10 leading-relaxed font-medium drop-shadow-lg ${inter.className}`}>
                 Pay anywhere that accepts QR codes using your crypto balance. We handle the bridge, swap, and settlement in a single atomic transaction.
               </p>
 
-              <div className="space-y-4 mb-8">
+              <div className="space-y-6 mb-10">
                 {/* Feature 1 */}
                 <div className="flex items-center">
-                  <div className="bg-[#1E293B] p-1 rounded-full mr-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill={colors.primaryBlue} viewBox="0 0 16 16">
+                  <div className="bg-[#1E293B] p-1.5 rounded-full mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill={colors.primaryBlue} viewBox="0 0 16 16">
                       <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
                     </svg>
                   </div>
-                  <p className="text-base font-medium text-gray-200 drop-shadow-md">Zero bridge or conversion fees</p>
+                  <p className="text-xl font-medium text-gray-200 drop-shadow-md">Zero bridge or conversion fees</p>
                 </div>
                 {/* Feature 2 */}
                 <div className="flex items-center">
-                  <div className="bg-[#1E293B] p-1 rounded-full mr-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill={colors.primaryBlue} viewBox="0 0 16 16">
+                  <div className="bg-[#1E293B] p-1.5 rounded-full mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill={colors.primaryBlue} viewBox="0 0 16 16">
                       <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
                     </svg>
                   </div>
-                  <p className="text-base font-medium text-gray-200 drop-shadow-md">Non-custodial - your keys, your coins</p>
+                  <p className="text-xl font-medium text-gray-200 drop-shadow-md">Non-custodial - your keys, your coins</p>
                 </div>
                 {/* Feature 3 */}
                 <div className="flex items-center">
-                  <div className="bg-[#1E293B] p-1 rounded-full mr-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill={colors.primaryBlue} viewBox="0 0 16 16">
+                  <div className="bg-[#1E293B] p-1.5 rounded-full mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill={colors.primaryBlue} viewBox="0 0 16 16">
                       <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
                     </svg>
                   </div>
-                  <p className="text-base font-medium text-gray-200 drop-shadow-md">Earn 4.5% APY while you spend</p>
+                  <p className="text-xl font-medium text-gray-200 drop-shadow-md">Earn 4.5% APY while you spend</p>
                 </div>
               </div>
 
@@ -206,10 +208,10 @@ const MainHook = () => {
                 href="/"
                 bg="white"
                 color="black"
-                className="px-6 py-3 rounded-lg flex items-center font-bold text-sm"
+                className="px-8 py-4 rounded-xl flex items-center font-bold text-lg"
                 text={
-                  <span className="flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                  <span className="flex items-center gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                       <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
                       <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
                     </svg>
@@ -222,7 +224,7 @@ const MainHook = () => {
 
             {/* Right Column: Phone Image - Tucked in */}
             <div className="flex-1 flex justify-center items-center pl-8 pointer-events-none select-none">
-              <div className="relative w-[350px] h-[700px]">
+              <div className="relative w-[450px] h-[750px]">
                 <Image
                   src="/phone.png"
                   alt="App Screenshot"
